@@ -27,7 +27,7 @@ npm install retryit --save
   - *Description*:
     - `opts` can be either an object or a number.
     - `times` - The number of attempts to make before giving up. The default is `5`.
-    - `interval` - The time to wait between retries, in milliseconds. The default is 0. The interval may also be specified as a function of the retry count (see example). This library provides serveral wait wait strategies that you can use it as interval.
+    - `interval` - The time to wait between retries, in milliseconds. The default is 0. The interval may also be specified as a function of the retry count (see example). This library provides serveral wait strategies that you can use it as interval.
     - `errorFilter` - An optional synchronous function that is invoked on erroneous result. If it returns `true` the retry attempts will continue; if the function returns `false` the retry flow is aborted with the current attempt's error and result being returned to the final callback. Invoked with (err).
     - If `opts` is a number, the number specifies the number of times to retry, with the default interval of `0`.
 - `task`: function
