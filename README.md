@@ -1,7 +1,7 @@
 retryit
 ========
 
-A Promise version of [async/retry](https://github.com/caolan/async). Also inclues serveral WaitStrategies that might be useful for situations where more well-behaved service polling is preferred.
+A Promise version of [async/retry](https://github.com/caolan/async). Also includes serveral WaitStrategies that might be useful for situations where more well-behaved service polling is preferred.
 
 **Thanks to [Caolan McMahon](https://github.com/caolan) for the great work!**
 
