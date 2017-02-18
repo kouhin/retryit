@@ -7,7 +7,7 @@ A Promise version of [async/retry](https://github.com/caolan/async). Also inclue
 
 [![CircleCI](https://img.shields.io/circleci/project/github/kouhin/retryit.svg)](https://circleci.com/gh/kouhin/retryit/tree/develop)
 [![npm](https://img.shields.io/npm/v/retryit.svg)](https://www.npmjs.com/package/retryit)
-[![dependency status](https://david-dm.org/kouhin/react-router-hook.svg?style=flat-square)](https://david-dm.org/kouhin/react-router-hook)
+[![dependency status](https://david-dm.org/kouhin/retryit.svg?style=flat-square)](https://david-dm.org/kouhin/retryit)
 [![airbnb style](https://img.shields.io/badge/code_style-airbnb-blue.svg)](https://github.com/airbnb/javascript)
 
 ## Installation
