@@ -5,6 +5,11 @@ A Promise version of [async/retry](https://github.com/caolan/async). Also inclue
 
 **Thanks to [Caolan McMahon](https://github.com/caolan) for the great work!**
 
+[![CircleCI](https://img.shields.io/circleci/project/github/kouhin/retryit.svg)](https://circleci.com/gh/kouhin/retryit/tree/develop)
+[![npm](https://img.shields.io/npm/v/retryit.svg)](https://www.npmjs.com/package/retryit)
+[![dependency status](https://david-dm.org/kouhin/react-router-hook.svg?style=flat-square)](https://david-dm.org/kouhin/react-router-hook)
+[![airbnb style](https://img.shields.io/badge/code_style-airbnb-blue.svg)](https://github.com/airbnb/javascript)
+
 ## Installation
 
 ```sh
