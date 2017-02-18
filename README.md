@@ -33,6 +33,7 @@ npm install retryit --save
 - `task`: function
   - *Description*:
     - A function which returns a Promise.
+
 #### Returns
 
   - (Promise): A Promise object which will be resolved when the task has succeeded, or rejected with an error after the final failed attempt.
