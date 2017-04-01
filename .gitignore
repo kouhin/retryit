@@ -17,3 +17,4 @@ lib
 dist
 es
 .tern-port
+yarn.lock
