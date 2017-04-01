@@ -16,7 +16,8 @@
     "lint": "eslint src test",
     "posttest": "npm run lint",
     "prepublish": "npm run clean && npm run test && npm run build",
-    "test": "jest"
+    "test": "jest --coverage",
+    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
@@ -37,6 +38,7 @@
     "babel-preset-latest": "^6.22.0",
     "babel-preset-stage-0": "^6.22.0",
     "chai": "^3.5.0",
+    "coveralls": "^2.13.0",
     "eslint-config-airbnb-deps": "^14.1.0",
     "eslint-plugin-babel": "^4.0.1",
     "jest": "^18.1.0",
