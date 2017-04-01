@@ -1,6 +1,33 @@
 {
-  "presets": [
-    "env",
-    "stage-0"
-  ]
+  "env": {
+    "development": {
+      "presets": [
+        "env",
+        "stage-0"
+      ]
+    },
+    "test": {
+      "presets": [
+        "env",
+        "stage-0"
+      ]
+    },
+    "commonjs": {
+      "presets": [
+        "env",
+        "stage-0"
+      ]
+    },
+    "es": {
+      "presets": [
+        [
+          "env",
+          {
+            "modules": false
+          }
+        ],
+        "stage-0"
+      ]
+    }
+  }
 }

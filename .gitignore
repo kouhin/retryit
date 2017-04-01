@@ -15,4 +15,5 @@ node_modules
 webpack-assets.json
 lib
 dist
+es
 .tern-port
