@@ -18,6 +18,15 @@ describe('waitStrategies', () => {
   });
 
   describe('incrementingWait', () => {
+    it('incrementingWait(), should return 0, 1000, 2000, 3000, 4000', () => {
+      const wait = incrementingWait();
+      expect(wait(1)).toBe(0);
+      expect(wait(2)).toBe(1000);
+      expect(wait(3)).toBe(2000);
+      expect(wait(4)).toBe(3000);
+      expect(wait(5)).toBe(4000);
+    });
+
     it('incrementingWait(1000, 2000), should return 1000, 3000, 5000, 7000, 9000', () => {
       const wait = incrementingWait(1000, 2000);
       expect(wait(1)).toBe(1000);
@@ -25,6 +34,13 @@ describe('waitStrategies', () => {
       expect(wait(3)).toBe(5000);
       expect(wait(4)).toBe(7000);
       expect(wait(5)).toBe(9000);
+    });
+
+    it('incrementingWait(), when pass a negative number, 0 will be used as count', () => {
+      const wait = incrementingWait(1000, 2000);
+      expect(wait(-1)).toBe(1000);
+      expect(wait(-2)).toBe(1000);
+      expect(wait(-3)).toBe(1000);
     });
 
     it('incrementingWait(1000, 2000, 8000), should return 1000, 3000, 5000, 7000, 8000', () => {
@@ -47,6 +63,22 @@ describe('waitStrategies', () => {
       expect(wait(5)).toBe(5);
       expect(wait(6)).toBe(8);
       expect(wait(7)).toBe(13);
+    });
+
+    it('fibonacciWait(), when pass a negative number, 0 will be used as count', () => {
+      const wait = fibonacciWait();
+      expect(wait(-1)).toBe(1);
+      expect(wait(-2)).toBe(1);
+      expect(wait(-3)).toBe(1);
+    });
+
+    it('fibonacciWait(4, 2), should return 2, 2, 2, 2, 2', () => {
+      const wait = fibonacciWait(4, 2);
+      expect(wait(1)).toBe(2);
+      expect(wait(2)).toBe(2);
+      expect(wait(3)).toBe(2);
+      expect(wait(4)).toBe(2);
+      expect(wait(5)).toBe(2);
     });
 
     it('fibonacciWait(100), should return 100, 100, 200, 300, 500, 800, 1300', () => {
@@ -105,6 +137,13 @@ describe('waitStrategies', () => {
       expect(wait(14)).toBeLessThanOrEqual(45);
       expect(wait(15)).toBeGreaterThanOrEqual(35);
       expect(wait(15)).toBeLessThanOrEqual(45);
+    });
+
+    it('randomWait(), 0 will be used as min and max, should always return 0', () => {
+      const wait = randomWait();
+      expect(wait(1)).toBe(0);
+      expect(wait(2)).toBe(0);
+      expect(wait(3)).toBe(0);
     });
   });
 
