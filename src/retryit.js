@@ -12,7 +12,7 @@ const DEFAULT_OPTIONS = {
 export default function retryit(opts, task) {
   let taskFn;
   let options;
-  if (arguments.length < 2) {
+  if (!task) {
     taskFn = opts;
     options = DEFAULT_OPTIONS;
   } else {

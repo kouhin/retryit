@@ -1,9 +1,15 @@
 retryit
 ========
 
-A Promise version of [async/retry](https://github.com/caolan/async). Also inclues serveral WaitStrategies that might be useful for situations where more well-behaved service polling is preferred.
+A Promise version of [async/retry](https://github.com/caolan/async). Also includes serveral WaitStrategies that might be useful for situations where more well-behaved service polling is preferred.
 
 **Thanks to [Caolan McMahon](https://github.com/caolan) for the great work!**
+
+[![CircleCI](https://img.shields.io/circleci/project/github/kouhin/retryit.svg)](https://circleci.com/gh/kouhin/retryit/tree/master)
+[![Coverage Status](https://coveralls.io/repos/github/kouhin/retryit/badge.svg?branch=master)](https://coveralls.io/github/kouhin/retryit?branch=master)
+[![npm](https://img.shields.io/npm/v/retryit.svg)](https://www.npmjs.com/package/retryit)
+[![dependency status](https://david-dm.org/kouhin/retryit.svg?style=flat-square)](https://david-dm.org/kouhin/retryit)
+[![airbnb style](https://img.shields.io/badge/code_style-airbnb-blue.svg)](https://github.com/airbnb/javascript)
 
 ## Installation
 
@@ -22,12 +28,13 @@ npm install retryit --save
   - *Description*:
     - `opts` can be either an object or a number.
     - `times` - The number of attempts to make before giving up. The default is `5`.
-    - `interval` - The time to wait between retries, in milliseconds. The default is 0. The interval may also be specified as a function of the retry count (see example). This library provides serveral wait wait strategies that you can use it as interval.
+    - `interval` - The time to wait between retries, in milliseconds. The default is 0. The interval may also be specified as a function of the retry count (see example). This library provides serveral wait strategies that you can use it as interval.
     - `errorFilter` - An optional synchronous function that is invoked on erroneous result. If it returns `true` the retry attempts will continue; if the function returns `false` the retry flow is aborted with the current attempt's error and result being returned to the final callback. Invoked with (err).
     - If `opts` is a number, the number specifies the number of times to retry, with the default interval of `0`.
 - `task`: function
   - *Description*:
     - A function which returns a Promise.
+
 #### Returns
 
   - (Promise): A Promise object which will be resolved when the task has succeeded, or rejected with an error after the final failed attempt.
