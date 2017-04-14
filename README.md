@@ -31,9 +31,9 @@ npm install retryit --save
     - `interval` - The time to wait between retries, in milliseconds. The default is 0. The interval may also be specified as a function of the retry count (see example). This library provides serveral wait strategies that you can use it as interval.
     - `errorFilter` - An optional synchronous function that is invoked on erroneous result. If it returns `true` the retry attempts will continue; if the function returns `false` the retry flow is aborted with the current attempt's error and result being returned to the final callback. Invoked with (err).
     - If `opts` is a number, the number specifies the number of times to retry, with the default interval of `0`.
-- `task`: function
+- `task`: function(err)
   - *Description*:
-    - A function which returns a Promise.
+    - A function which returns a Promise. The argument is previous error.
 
 #### Returns
 
@@ -48,7 +48,13 @@ import retryit from 'retyryit';
 // a callback, as shown below:
 
 // try calling getPromise 3 times
-retryit(3, getPromise)
+retryit(3, (err) => {
+    if (err) {
+      // err is previous error
+      console.error(err);
+    }
+    // return a Promise
+  })
   .then(result => {
     // do something with the result
   })
