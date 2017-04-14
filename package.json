@@ -1,6 +1,6 @@
 {
   "name": "retryit",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A Promise version of async/retry",
   "main": "lib/index.js",
   "module": "es/index.js",
