@@ -42,6 +42,32 @@ describe('retryit', () => {
       });
   });
 
+  it('retry when all attempts fail, receive prev error', (done) => {
+    const times = 3;
+    let callCount = 0;
+    const error = 'ERROR';
+    function fn(err) {
+      if (callCount === 0) {
+        expect(err).toBe(undefined);
+      } else {
+        expect(err).toBe(error + callCount);
+      }
+      return new Promise((resolve, reject) => {
+        callCount += 1;
+        reject(error + callCount);
+      });
+    }
+    retryit(times, fn)
+      .then(() => {
+        done('Incorrect result was returned');
+      })
+      .catch((err) => {
+        expect(callCount).toBe(3);
+        expect(err).toBe(error + times);
+        done();
+      });
+  });
+
   it('retry fails with invalid arguments', (done) => {
     expect(() => {
       retryit('');
