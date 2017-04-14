@@ -30,14 +30,14 @@ export default function retryit(opts, task) {
   const intervalFunc = typeof opts.interval === 'function' ? opts.interval : fixedWait(opts.interval);
 
   let attempt = 1;
-  function retryAttempt() {
-    return taskFn()
+  function retryAttempt(prevErr) {
+    return taskFn(prevErr)
       .catch((err) => {
         if (attempt < options.times && options.errorFilter(err)) {
           attempt += 1;
           return new Promise((resolve) => {
             setTimeout(() => {
-              resolve(retryAttempt());
+              resolve(retryAttempt(err));
             }, intervalFunc(attempt));
           });
         }
