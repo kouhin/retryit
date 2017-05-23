@@ -1,6 +1,8 @@
 retryit
 ========
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/kouhin/retryit.svg)](https://greenkeeper.io/)
+
 A Promise version of [async/retry](https://github.com/caolan/async). Also includes serveral WaitStrategies that might be useful for situations where more well-behaved service polling is preferred.
 
 **Thanks to [Caolan McMahon](https://github.com/caolan) for the great work!**
