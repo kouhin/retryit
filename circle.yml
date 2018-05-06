@@ -13,7 +13,7 @@ deployment:
   production:
     branch: master
     commands:
-      - git tag v`jq -r '.version' package.json`
+      - git tag -f v`jq -r '.version' package.json`
       - git push origin --tags
-      - echo -e "$NPM_USERNAME\n$NPM_PASSWORD\n$NPM_EMAIL" | npm login
+      - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
       - npm publish
