@@ -6,7 +6,7 @@ const DEFAULT_INTERVAL = 0;
 const DEFAULT_OPTIONS = {
   times: DEFAULT_TIMES,
   interval: DEFAULT_INTERVAL,
-  errorFilter: () => true,
+  errorFilter: () => true
 };
 
 export default function retryit(opts, task) {
@@ -19,7 +19,7 @@ export default function retryit(opts, task) {
     taskFn = task;
     options = {
       ...DEFAULT_OPTIONS,
-      ...(typeof opts === 'object' ? opts : { times: opts }),
+      ...(typeof opts === 'object' ? opts : { times: opts })
     };
   }
 
@@ -27,22 +27,24 @@ export default function retryit(opts, task) {
     throw new Error('Invalid arguments for retryit, task is undefined');
   }
 
-  const intervalFunc = typeof opts.interval === 'function' ? opts.interval : fixedWait(opts.interval);
+  const intervalFunc =
+    typeof opts.interval === 'function'
+      ? opts.interval
+      : fixedWait(opts.interval);
 
   let attempt = 1;
   function retryAttempt(prevErr) {
-    return taskFn(prevErr)
-      .catch((err) => {
-        if (attempt < options.times && options.errorFilter(err)) {
-          attempt += 1;
-          return new Promise((resolve) => {
-            setTimeout(() => {
-              resolve(retryAttempt(err));
-            }, intervalFunc(attempt));
-          });
-        }
-        return Promise.reject(err);
-      });
+    return taskFn(prevErr).catch(err => {
+      if (attempt < options.times && options.errorFilter(err)) {
+        attempt += 1;
+        return new Promise(resolve => {
+          setTimeout(() => {
+            resolve(retryAttempt(err));
+          }, intervalFunc(attempt));
+        });
+      }
+      return Promise.reject(err);
+    });
   }
   return retryAttempt();
 }

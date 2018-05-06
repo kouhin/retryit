@@ -16,7 +16,7 @@ export function fixedWait(interval = 0) {
  * and in exponentially incrementing amounts after each failed attempt up to the maximumTime.
  */
 export function exponentialWait(multiplier = 1, max = Number.MAX_VALUE) {
-  return (count) => {
+  return count => {
     const next = multiplier * Math.pow(2, count); // eslint-disable-line no-restricted-properties
     return next > max ? max : next;
   };
@@ -29,10 +29,10 @@ export function exponentialWait(multiplier = 1, max = Number.MAX_VALUE) {
 export function fibonacciWait(multiplier = 1, max = Number.MAX_VALUE) {
   const cache = {
     1: 1 * multiplier,
-    2: 1 * multiplier,
+    2: 1 * multiplier
   };
 
-  const fabonacci = (count) => {
+  const fabonacci = count => {
     const n = count < 1 ? 1 : count;
     if (typeof cache[n] === 'number') {
       return cache[n] > max ? max : cache[n];
@@ -48,10 +48,14 @@ export function fibonacciWait(multiplier = 1, max = Number.MAX_VALUE) {
  * Returns a strategy that sleeps a fixed amount of time after the first failed attempt
  * and in incrementing amounts of time after each additional failed attempt.
  */
-export function incrementingWait(initialSleepTime = 0, increment = 1000, max = Number.MAX_VALUE) {
-  return (count) => {
+export function incrementingWait(
+  initialSleepTime = 0,
+  increment = 1000,
+  max = Number.MAX_VALUE
+) {
+  return count => {
     const n = count < 1 ? 0 : count - 1;
-    const next = initialSleepTime + (n * increment);
+    const next = initialSleepTime + n * increment;
     return next > max ? max : next;
   };
 }
@@ -60,5 +64,5 @@ export function incrementingWait(initialSleepTime = 0, increment = 1000, max = N
  * Returns a strategy that sleeps a random amount of time before retrying.
  */
 export function randomWait(min = 0, max = 0) {
-  return () => parseInt(min + ((max - min) * Math.random()), 10);
+  return () => parseInt(min + (max - min) * Math.random(), 10);
 }
