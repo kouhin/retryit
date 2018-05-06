@@ -4,14 +4,16 @@ import {
   exponentialWait,
   fibonacciWait,
   incrementingWait,
-  randomWait,
+  randomWait
 } from './waitStrategies';
 
 export {
-  retryit as default,
+  retryit,
   fixedWait,
   exponentialWait,
   fibonacciWait,
   incrementingWait,
-  randomWait,
+  randomWait
 };
+
+export default retryit;
