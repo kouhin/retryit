@@ -1,4 +1,10 @@
-import { fixedWait, incrementingWait, fibonacciWait, randomWait, exponentialWait } from '../src';
+import {
+  fixedWait,
+  incrementingWait,
+  fibonacciWait,
+  randomWait,
+  exponentialWait
+} from '../src';
 
 describe('waitStrategies', () => {
   describe('fixedWait', () => {

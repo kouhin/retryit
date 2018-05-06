@@ -1,7 +1,10 @@
 {
   "root": true,
   "parser": "babel-eslint",
-  "extends": "eslint-config-airbnb",
+  "extends": [
+    "eslint-config-airbnb",
+    "plugin:prettier/recommended"
+  ],
   "env": {
     "browser": true,
     "node": true
