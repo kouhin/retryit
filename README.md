@@ -9,7 +9,6 @@ A Promise version of [async/retry](https://github.com/caolan/async). Also includ
 [![Coverage Status](https://coveralls.io/repos/github/kouhin/retryit/badge.svg?branch=master)](https://coveralls.io/github/kouhin/retryit?branch=master)
 [![npm](https://img.shields.io/npm/v/retryit.svg)](https://www.npmjs.com/package/retryit)
 [![dependency status](https://david-dm.org/kouhin/retryit.svg?style=flat-square)](https://david-dm.org/kouhin/retryit)
-[![airbnb style](https://img.shields.io/badge/code_style-airbnb-blue.svg)](https://github.com/airbnb/javascript)
 
 ## Installation
 
