@@ -13,6 +13,7 @@ deployment:
   production:
     branch: master
     commands:
+      - git fetch --tags --force
       - git tag -f v`jq -r '.version' package.json`
       - git push origin --tags
       - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
